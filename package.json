@@ -1,0 +1,125 @@
+{
+  "name": "connect-to-openai",
+  "displayName": "Connect To OpenAI",
+  "description": "Allows a dev to prompt OpenAI from their editor.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:connect-to-openai.prompt-openai"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [{
+      "command": "connect-to-openai.prompt-openai",
+      "category": "Connect To OpenAI",
+      "title": "Prompt OpenAI"
+    }],
+    "configuration":{
+      "title": "Connect To OpenAI",
+      "properties": {
+        "connect-to-openai.apiKey": {
+          "type": "string",
+          "default": null,
+          "description": "Your OpenAI API Key"
+        },
+        "connect-to-openai.parameters.model": {
+          "type": "string",
+          "enum": ["text-davinci-003", "text-curie-001", "text-babbage-001", "text-ada-001", "code-davinci-002", "code-cushman-001"],
+          "default": "text-davinci-003",
+          "description": "Model to use for the prompt"
+        },
+        "connect-to-openai.parameters.suffix": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "The suffix that comes after a completion of inserted text."
+        },
+        "connect-to-openai.parameters.max_tokens": {
+          "type": "integer",
+          "default": 16,
+          "description": "The maximum number of tokens to generate in the completion."
+        },
+        "connect-to-openai.parameters.temperature": {
+          "type": "number",
+          "default": 1,
+          "description": "What sampling temperature to use. Higher values means the model will take more risks."
+        },
+        "connect-to-openai.parameters.top_p": {
+          "type": "number",
+          "default": 1,
+          "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass."
+        },
+        "connect-to-openai.parameters.n": {
+          "type": "integer",
+          "default": 1,
+          "description": "How many completions to generate for each prompt."
+        },
+        "connect-to-openai.parameters.stream": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether to stream back partial progress. If set, tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a data: [DONE] message."
+        },
+        "connect-to-openai.parameters.logprobs": {
+          "type": ["integer", "null"],
+          "default": null,
+          "description": "Include the log probabilities on the logprobs most likely tokens, as well the chosen tokens."
+        },
+        "connect-to-openai.parameters.echo": {
+          "type": "boolean",
+          "default": false,
+          "description": "Echo back the prompt in addition to the completion"
+        },
+        "connect-to-openai.parameters.stop": {
+          "type": ["string", "array", "null"],
+          "default": null,
+          "maxItems": 4,
+          "description": "Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence."
+        },
+        "connect-to-openai.parameters.presence_penalty": {
+          "type": "number",
+          "default": 0,
+          "minimum": -2.0,
+          "maximum": 2.0,
+          "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics."
+        },
+        "connect-to-openai.parameters.frequency_penalty": {
+          "type": "number",
+          "default": 0,
+          "minimum": -2.0,
+          "maximum": 2.0,
+          "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim."
+        },
+        "connect-to-openai.parameters.best_of": {
+          "type": "integer",
+          "default": 1,
+          "description": "Generates best_of completions server-side and returns the 'best' (the one with the highest log probability per token). Results cannot be streamed."
+        },
+        "connect-to-openai.parameters.logit_bias": {
+          "type": ["object", "null"],
+          "default": null,
+          "description": "Modify the likelihood of specified tokens appearing in the completion."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "yarn run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3",
+    "@vscode/test-electron": "^2.2.0"
+  }
+}

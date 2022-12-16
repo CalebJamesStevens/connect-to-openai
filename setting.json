@@ -1,0 +1,13 @@
+{
+  "connect-to-openai.apiKey": null,
+  "connect-to-openai.model": "text-davinci-003",
+  "connect-to-openai.parameters": {
+    "max_tokens": 7,
+    "temperature": 0,
+    "top_p": 1,
+    "n": 1,
+    "stream": false,
+    "logprobs": null,
+    "stop": "\n"
+  }
+}
