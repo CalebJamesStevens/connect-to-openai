@@ -4,7 +4,7 @@ function sendApiCall (arg) {
   const https = require('https');
   const apiKey = vscode.workspace.getConfiguration('connect-to-openai').apiKey;
 
-  if (apiKey) {
+  if (!apiKey) {
     vscode.window.showErrorMessage('Please provide a valid API key in the entension configuration.');
     return;
   }
