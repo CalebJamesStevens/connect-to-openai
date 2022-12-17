@@ -3,7 +3,7 @@
   "displayName": "Connect To OpenAI",
   "description": "Allows a dev to prompt OpenAI from their editor.",
   "repository": "https://github.com/CalebJamesStevens/connect-to-openai",
-  "icon": "https://github.com/CalebJamesStevens/connect-to-openai/blob/main/images/connecttoopenaiicon.png",
+  "icon": "images/icon.png",
   "publisher": "CalebJStevens",
   "version": "1.0.0",
   "engines": {
