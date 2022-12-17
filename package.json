@@ -2,6 +2,8 @@
   "name": "connect-to-openai",
   "displayName": "Connect To OpenAI",
   "description": "Allows a dev to prompt OpenAI from their editor.",
+  "repository": "https://github.com/CalebJamesStevens/connect-to-openai",
+  "publisher": "CalebJStevens",
   "version": "1.0.0",
   "engines": {
     "vscode": "^1.74.0"
