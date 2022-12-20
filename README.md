@@ -12,7 +12,7 @@ Do not misue or abuse an API key you are not authorized to use. Do not misues or
 
 Just select your intended prompt and run the 'Prompt OpenAI' command. The results will be pasted into your editor below the selected text!
 
-<img alt='Connect To OpenAI Example' src='https://github.com/CalebJamesStevens/connect-to-openai/blob/main/images/connecttoopenai1.gif'>
+<img alt='Connect To OpenAI Example' src='https://github.com/CalebJamesStevens/connect-to-openai/raw/main/images/connecttoopenai1.gif'>
 
 ## Requirements
 
